@@ -1,2 +1,2 @@
 <?php
-include("./modules/functions.php");
+include("./functions/functions.php");
