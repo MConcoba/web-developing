@@ -1,2 +1,2 @@
 <?php
-include("./functions/functions.php");
+include("./conexion_db_pdo/view.php");
