@@ -13,7 +13,9 @@
 
 <body>
     <?php
-    $consulta = 'select * from libro;';
+    include("conexion.php");
+    $con = conexionDb();
+    $consulta = 'select * from calificaciones;';
     ?>
     <section class="hero is-fullheight">
         <div class="hero-body has-text-left">
@@ -29,8 +31,6 @@
                             <div class="table-container">
 
                                 <?php
-                                include("conexion.php");
-                                $con = conexionDb();
                                 if ($con['status']) {
                                     $r = runQuery($consulta, $con['con']);
                                     if ($r['status']) {  ?>
@@ -38,24 +38,22 @@
                                         <table class="table is-bordered is-fullwidth  is-striped  is-hoverable ">
                                             <thead>
                                                 <tr>
-                                                    <th>No.</th>
-                                                    <th>Titulo</th>
-                                                    <th>Autor</th>
-                                                    <th>Editorial</th>
-                                                    <th>Año</th>
-                                                    <th>Temas</th>
+                                                    <?php
+                                                    foreach ($r['headers'] as $head) { ?>
+                                                        <th class="is-capitalized"><?php echo $head; ?></th>
+                                                    <?php }
+                                                    ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                 foreach ($r['message'] as $row) { ?>
                                                     <tr>
-                                                        <td><?php echo $row['libro_id']; ?></td>
-                                                        <td><?php echo $row['titulo']; ?></td>
-                                                        <td><?php echo $row['autor']; ?></td>
-                                                        <td><?php echo $row['editorial']; ?></td>
-                                                        <td><?php echo $row['anio']; ?></td>
-                                                        <td><?php echo $row['temas']; ?></td>
+                                                        <?php
+                                                        foreach ($r['rows'] as $val) { ?>
+                                                            <td><?php echo $row[$val]; ?></td>
+                                                        <?php }
+                                                        ?>
                                                     </tr>
                                                 <?php }
                                                 ?>
