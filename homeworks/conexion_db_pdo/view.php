@@ -14,8 +14,8 @@
 <body>
     <?php
     include("conexion.php");
-    $con = conexionDb();
-    $consulta = 'select * from calificaciones;';
+    $con = conexionDb(); // se realizar la connecion a la DB
+    $consulta = 'select * from calificaciones;'; // query a ejecutar
     ?>
     <section class="hero is-fullheight">
         <div class="hero-body has-text-left">
@@ -31,15 +31,16 @@
                             <div class="table-container">
 
                                 <?php
-                                if ($con['status']) {
+                                if ($con['status']) { // estado de connecion
                                     $r = runQuery($consulta, $con['con']);
-                                    if ($r['status']) {  ?>
-
+                                    if ($r['status']) {  // estado del query 
+                                ?>
                                         <table class="table is-bordered is-fullwidth  is-striped  is-hoverable ">
                                             <thead>
                                                 <tr>
                                                     <?php
-                                                    foreach ($r['headers'] as $head) { ?>
+                                                    foreach ($r['headers'] as $head) { // se recoren los headers a mostrar
+                                                    ?>
                                                         <th class="is-capitalized"><?php echo $head; ?></th>
                                                     <?php }
                                                     ?>
@@ -47,10 +48,12 @@
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                foreach ($r['message'] as $row) { ?>
+                                                foreach ($r['message'] as $row) { //lisatdo de valores que retorna la consulta  
+                                                ?>
                                                     <tr>
                                                         <?php
-                                                        foreach ($r['rows'] as $val) { ?>
+                                                        foreach ($r['rows'] as $val) { // se recoren el key de cada valor 
+                                                        ?>
                                                             <td><?php echo $row[$val]; ?></td>
                                                         <?php }
                                                         ?>
@@ -76,9 +79,6 @@
             </div>
         </div>
     </section>
-
-
-
 </body>
 
 </html>
