@@ -9,10 +9,19 @@ class BookModel
         $this->db = $db;
     }
 
-    public function create($title, $author, $isbn, $publish_year, $copies, $quantity, $topics)
-    {
-        $sql = "INSERT INTO book (title, author, isbn, publish_year, copies, quantity, topics) 
-                VALUES (:title, :author, :isbn, :publish_year, :copies, :quantity, :topics)";
+    public function create(
+        $title,
+        $author,
+        $isbn,
+        $publish_year,
+        $copies,
+        $quantity,
+        $topics
+    ) {
+        $sql = "INSERT INTO book (title, author, isbn, publish_year, 
+        copies, quantity, topics) 
+                VALUES (:title, :author, :isbn, :publish_year, :copies, 
+                :quantity, :topics)";
         $stmt = $this->db->prepare($sql);
 
         $stmt->bindParam(':title', $title);
@@ -35,10 +44,19 @@ class BookModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function update($id, $title, $author, $isbn, $publish_year, $copies, $quantity, $topics)
-    {
-        $sql = "UPDATE book SET title = :title, author = :author, isbn = :isbn, 
-                publish_year = :publish_year, copies = :copies, quantity = :quantity, topics = :topics
+    public function update(
+        $id,
+        $title,
+        $author,
+        $isbn,
+        $publish_year,
+        $copies,
+        $quantity,
+        $topics
+    ) {
+        $sql = "UPDATE book SET title = :title, author = :author, 
+                isbn = :isbn, publish_year = :publish_year, 
+                copies = :copies, quantity = :quantity, topics = :topics
                 WHERE id = :id";
         $stmt = $this->db->prepare($sql);
 
@@ -64,7 +82,9 @@ class BookModel
 
     public function getAllBooks()
     {
-        $sql = "SELECT id as 'No.', title as Titulo, author as Autor, isbn as ISBN, publish_year as 'Año de publicacion', topics as Temas FROM book";
+        $sql = "SELECT id as 'No.', title as Titulo, author as Autor, 
+        isbn as ISBN, publish_year as 'Año de publicacion', topics as 
+        Temas FROM book";
         $stmt = $this->db->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -11,9 +11,24 @@ class BookController
     }
 
     // Método para crear un libro
-    public function create($title, $author, $isbn, $publish_year, $copies, $quantity, $topics)
-    {
-        if ($this->bookModel->create($title, $author, $isbn, $publish_year, $copies, $quantity, $topics)) {
+    public function create(
+        $title,
+        $author,
+        $isbn,
+        $publish_year,
+        $copies,
+        $quantity,
+        $topics
+    ) {
+        if ($this->bookModel->create(
+            $title,
+            $author,
+            $isbn,
+            $publish_year,
+            $copies,
+            $quantity,
+            $topics
+        )) {
             return "Book created successfully.";
         } else {
             return "Failed to create the book.";
@@ -32,9 +47,26 @@ class BookController
     }
 
     // Método para actualizar un libro
-    public function update($id, $title, $author, $isbn, $publish_year, $copies, $quantity, $topics)
-    {
-        if ($this->bookModel->update($id, $title, $author, $isbn, $publish_year, $copies, $quantity, $topics)) {
+    public function update(
+        $id,
+        $title,
+        $author,
+        $isbn,
+        $publish_year,
+        $copies,
+        $quantity,
+        $topics
+    ) {
+        if ($this->bookModel->update(
+            $id,
+            $title,
+            $author,
+            $isbn,
+            $publish_year,
+            $copies,
+            $quantity,
+            $topics
+        )) {
             return "Book updated successfully.";
         } else {
             return "Failed to update the book.";
@@ -55,12 +87,12 @@ class BookController
     public function getAllBooks()
     {
         $results = $this->bookModel->getAllBooks();
-        $keys = array_keys($results[0]); // Obtiene las claves del primer elemento
+        $keys = array_keys($results[0]);
         return [
             'status' => true,
             'message' => $results, // datos del la consulta 
-            'headers' => $keys, // valores a mostrar en el header de la tabla (con cambios modificados)
-            'rows' => array_keys($results[0]) // valores sin modificar que retorna la tabla
+            'headers' => $keys, // valores a mostrar en el header
+            'rows' => array_keys($results[0]) // valores sin modificar
         ];
     }
 }
