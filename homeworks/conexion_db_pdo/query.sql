@@ -19,3 +19,25 @@ INSERT INTO libro (titulo, autor, editorial, anio, temas) VALUES
 ('El Señor de los Anillos', 'J.R.R. Tolkien', 'Allen & Unwin', 1954, 'Fantasía, Aventura, Guerra'),
 ('Ulises', 'James Joyce', 'Shakespeare and Company', 1922, 'Modernismo, Monólogo interior, Cultura'),
 ('El Principito', 'Antoine de Saint-Exupéry', 'Reynal & Hitchcock', 1943, 'Fábula, Infancia, Filosofía');
+
+
+CREATE TABLE calificaciones (
+    calificacion_id INT IDENTITY(1,1) PRIMARY KEY,
+    nombres VARCHAR(100) NOT NULL,
+    materia VARCHAR(50) NOT NULL,
+    calificacion DECIMAL(5, 2) NOT NULL,
+    fecha DATE NOT NULL
+);
+
+
+INSERT INTO calificaciones (nombres, materia, calificacion, fecha) VALUES
+('Juan Pérez', 'Matemáticas', 85.50, '2024-08-01'),
+('María García', 'Ciencias', 92.75, '2024-08-02'),
+('Carlos López', 'Historia', 78.00, '2024-08-03'),
+('Ana Torres', 'Lengua Española', 88.25, '2024-08-04'),
+('Luis Hernández', 'Matemáticas', 94.50, '2024-08-05'),
+('Sofía Martínez', 'Ciencias', 81.00, '2024-08-06'),
+('Miguel Ramírez', 'Historia', 72.25, '2024-08-07'),
+('Laura Sánchez', 'Lengua Española', 89.50, '2024-08-08'),
+('Pedro Ortiz', 'Matemáticas', 76.75, '2024-08-09'),
+('Elena Rodríguez', 'Ciencias', 90.00, '2024-08-10');

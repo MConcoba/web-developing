@@ -13,7 +13,9 @@
 
 <body>
     <?php
-    $consulta = 'select * from libro;';
+    include("conexion.php");
+    $con = conexionDb(); // se realizar la connecion a la DB
+    $consulta = 'select * from calificaciones;'; // query a ejecutar
     ?>
     <section class="hero is-fullheight">
         <div class="hero-body has-text-left">
@@ -29,33 +31,32 @@
                             <div class="table-container">
 
                                 <?php
-                                include("conexion.php");
-                                $con = conexionDb();
-                                if ($con['status']) {
+                                if ($con['status']) { // estado de connecion
                                     $r = runQuery($consulta, $con['con']);
-                                    if ($r['status']) {  ?>
-
+                                    if ($r['status']) {  // estado del query 
+                                ?>
                                         <table class="table is-bordered is-fullwidth  is-striped  is-hoverable ">
                                             <thead>
                                                 <tr>
-                                                    <th>No.</th>
-                                                    <th>Titulo</th>
-                                                    <th>Autor</th>
-                                                    <th>Editorial</th>
-                                                    <th>Año</th>
-                                                    <th>Temas</th>
+                                                    <?php
+                                                    foreach ($r['headers'] as $head) { // se recoren los headers a mostrar
+                                                    ?>
+                                                        <th class="is-capitalized"><?php echo $head; ?></th>
+                                                    <?php }
+                                                    ?>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                foreach ($r['message'] as $row) { ?>
+                                                foreach ($r['message'] as $row) { //lisatdo de valores que retorna la consulta  
+                                                ?>
                                                     <tr>
-                                                        <td><?php echo $row['libro_id']; ?></td>
-                                                        <td><?php echo $row['titulo']; ?></td>
-                                                        <td><?php echo $row['autor']; ?></td>
-                                                        <td><?php echo $row['editorial']; ?></td>
-                                                        <td><?php echo $row['anio']; ?></td>
-                                                        <td><?php echo $row['temas']; ?></td>
+                                                        <?php
+                                                        foreach ($r['rows'] as $val) { // se recoren el key de cada valor 
+                                                        ?>
+                                                            <td><?php echo $row[$val]; ?></td>
+                                                        <?php }
+                                                        ?>
                                                     </tr>
                                                 <?php }
                                                 ?>
@@ -78,9 +79,6 @@
             </div>
         </div>
     </section>
-
-
-
 </body>
 
 </html>
