@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section class="hero is-fullheight">
+      <div class="hero-body has-text-left">
+        <div class="container">
+          <div class="has-text-centered mb-5">
+            <h1 class="title is-1">Seleccion de cursos</h1>
+          </div>
+          <div class="fixed-grid has-3-cols">
+            <div class="grid">
+              <div class="cell">
+                <div
+                  id="card-html"
+                  class="card"
+                  onclick="onCheck('check-html')"
+                >
+                  <header class="card-header">
+                    <p class="card-header-title">HTML</p>
+                    <button class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <div class="checkboxes">
+                          <input
+                            id="check-html"
+                            type="checkbox"
+                            class="check"
+                          />
+                        </div>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      <div class="card-image has-text-centered">
+                        <figure class="image is-4by3">
+                          <i
+                            id="icon-html"
+                            class="fab fa-html5 icon-option"
+                          ></i>
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="card" onclick="onCheck('check-css')">
+                  <header class="card-header">
+                    <p class="card-header-title">CSS</p>
+                    <button class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <div class="checkboxes">
+                          <input id="check-css" type="checkbox" class="check" />
+                        </div>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      <div class="card-image has-text-centered">
+                        <figure class="image is-4by3">
+                          <i
+                            id="icon-css"
+                            class="fab fa-css3-alt icon-option"
+                          ></i>
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="cell">
+                <div class="card" onclick="onCheck('check-js')">
+                  <header class="card-header">
+                    <p class="card-header-title">JavaScript</p>
+                    <button class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <div class="checkboxes">
+                          <input id="check-js" type="checkbox" class="check" />
+                        </div>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">
+                    <div class="content">
+                      <div class="card-image has-text-centered">
+                        <figure class="image is-4by3">
+                          <i
+                            id="icon-js"
+                            class="fab fa-js-square icon-option"
+                          ></i>
+                        </figure>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cell is-row-start-2 is-col-span-3">
+                <hr />
+              </div>
+              <div class="cell is-row-start-3 is-col-start-2 m-auto">
+                <button
+                  class="button is-large is-responsive is-info"
+                  onclick="showAlert()"
+                >
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/alert.js"></script>
+  </body>
+</html>

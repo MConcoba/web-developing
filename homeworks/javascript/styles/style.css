@@ -1,0 +1,26 @@
+.icon-option {
+  font-size: 15em;
+  color: gray;
+}
+
+.icon-alert {
+  font-size: 5em;
+  color: gray;
+}
+
+.check {
+  transform: scale(2);
+}
+
+.card {
+  cursor: pointer;
+}
+
+.boder-alert {
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.center-third {
+  text-align: center;
+}
