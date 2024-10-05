@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const API_URL = 'https://dummyjson.com';
+
+      async function getProductsCategory() {
+        try {
+          const response = await fetch(`${API_URL}/products/category-list`);
+          if (response.ok) {
+            return response.json();
+          }
+        } catch (error) {
+          console.error('Error en la solicitud de productos:', error);
+        }
+      }
+
+      async function getCarts() {
+        try {
+          const response = await fetch(`${API_URL}/carts`);
+          if (response.ok) {
+            return response.json();
+          }
+        } catch (error) {
+          console.error('Error en la solicitud de carts:', error);
+        }
+      }
+
+      async function showData() {
+        try {
+          const listProductos = await getProductsCategory();
+          const listCarts = await getCarts();
+
+          console.log(`Listado de productos:\n`, listProductos);
+          console.log(`Listado de carts:\n`, listCarts);
+        } catch (error) {
+          console.error('Error obteniendo datos:', error);
+        }
+      }
+
+      showData();
+    </script>
+  </body>
+</html>
