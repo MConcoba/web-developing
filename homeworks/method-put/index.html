@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metodo PUT</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      .card-number {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon-option {
+        font-size: 2.5rem;
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <div class="card">
+            <div class="card-image">
+              <div class="has-background-grey-light box">
+                <div class="fixed-grid has-2-cols">
+                  <div class="grid is-gap-1">
+                    <div class="cell box card-number has-background-white">
+                      <div style="display: flex; flex-direction: column">
+                        <div style="display: flex">
+                          <figure class="image is-4by3">
+                            <i class="fas fa-user-circle icon-option"></i>
+                          </figure>
+                          <h3
+                            style="margin: auto"
+                            class="has-text-centered title"
+                          >
+                            <strong
+                              class="has-text-primary"
+                              id="client"
+                            ></strong>
+                          </h3>
+                        </div>
+                        <div class="has-text-centered">
+                          <h4><strong>Usuario</strong></h4>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cell box card-number has-background-white">
+                      <div style="display: flex; flex-direction: column">
+                        <div style="display: flex">
+                          <figure class="image is-4by3">
+                            <i class="fas fa-id-card icon-option"></i>
+                          </figure>
+                          <h3
+                            style="margin: auto"
+                            class="has-text-centered title"
+                          >
+                            <strong class="has-text-primary" id="id"></strong>
+                          </h3>
+                        </div>
+                        <div class="has-text-centered">
+                          <h4><strong>ID</strong></h4>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cell box card-number has-background-white">
+                      <div style="display: flex; flex-direction: column">
+                        <div style="display: flex">
+                          <figure class="image is-4by3">
+                            <i class="fas fa-heading icon-option"></i>
+                          </figure>
+                          <h3 style="margin: auto" class="has-text-centered">
+                            <strong class="" id="title"></strong>
+                          </h3>
+                        </div>
+                        <div class="has-text-centered">
+                          <h4><strong>Titulo</strong></h4>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cell box card-number has-background-white">
+                      <div style="display: flex; flex-direction: column">
+                        <div style="display: flex">
+                          <figure class="image is-4by3">
+                            <i class="fas fa-align-justify icon-option"></i>
+                          </figure>
+                          <h3 style="margin: auto" class="has-text-centered">
+                            <strong class="" id="body"></strong>
+                          </h3>
+                        </div>
+                        <div class="has-text-centered">
+                          <h4><strong>Cuerpo</strong></h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <form id="update">
+              <div class="content">
+                <div class="field">
+                  <label class="label">Usuario Id</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="number"
+                      name="userId"
+                      placeholder="Ingrese el nuevo User Id"
+                    />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Titulo</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      name="title"
+                      placeholder="Ingrese el nuevo titulo"
+                    />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label class="label">Cuerpo</label>
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      name="body"
+                      placeholder="Ingrese el nuevo cuerpo"
+                    />
+                  </div>
+                </div>
+
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button class="button is-link">Enviar</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="request.js"></script>
+  </body>
+</html>
